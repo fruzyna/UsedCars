@@ -1,0 +1,22 @@
+{
+  "name": "usedcars",
+  "version": "0.0.1",
+  "description": "A webapp to manage ingestion of used cars for a dealership.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mail929/UsedCars.git"
+  },
+  "author": "Liam Fruzyna",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/mail929/UsedCars/issues"
+  },
+  "homepage": "https://github.com/mail929/UsedCars#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

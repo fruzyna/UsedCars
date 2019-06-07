@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>UsedCars</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        label {
+            display: block;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+        }
+        .full {
+            width: 100%;
+            padding: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <h1 align="center">UsedCars</h1>
+        <form name="new" action="/tasks">
+            <input type="submit" value="Create a New Task List" class="full">
+        </form>
+        <form name="open" action="/tasks">
+            <label>Existing License Plate Number: <input type="text" name="plate"></label>
+            <input type="submit" value="View/Edit" class="full">
+        </form>
+    </body>
+</html>
