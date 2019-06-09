@@ -17,7 +17,13 @@ var tasksHTML = fs.readFileSync(submitFile, 'utf8')
 var tasks = fs.readFileSync(tasksFile, 'utf8').split(/[\r\n]+/)
 var tasksSection = ''
 tasks.forEach(function (task, index) {
-    tasksSection += '<label><input type="checkbox" name="' + task + '">' + task + '</label>'
+    parts = task.split(',')
+    task = parts.shift()
+    tasksSection += '<div class="field-wrap"><label>' + task  + '</label><select form="tasks" name="' + task + '">'
+    parts.forEach(function (option, index) {
+        tasksSection += '<option id="' + task + '-' + option + '">' + option + '</option>'
+    })
+    tasksSection += '</select></div>'
 })
 tasksHTML = tasksHTML.replace('{:TASKS:}', tasksSection)
 
@@ -44,9 +50,8 @@ app.get('/tasks', (req, res) => {
     if(typeof submissions[plate] !== 'undefined') {
         response = response.replace('"plate">', '"plate" value="' + plate + '">')
         tasks.forEach(function (task, index) {
-            if(submissions[plate][task]) {
-                response = response.replace(task + '">', task + '" checked>')
-            }
+            task = task.split(',')[0]
+            response = response.replace(submissions[plate][task] + '">', submissions[plate][task] + '" selected="selected">')
         })
     }
 
@@ -59,7 +64,8 @@ app.get('/submit', (req, res) => {
     var plate = req.query.plate 
     submissions[plate] = {}
     tasks.forEach(function (task, index) {
-        submissions[plate][task] = req.query[task] == 'on'
+        task = task.split(',')[0]
+        submissions[plate][task] = req.query[task]
     })
 
     // save db to file

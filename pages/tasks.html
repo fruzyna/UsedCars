@@ -3,23 +3,48 @@
         <title>UsedCars</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+        body {
+            background: #efefd0;
+        }
         label {
-            display: block;
-            padding: 10px;
-            margin-bottom: 5px;
-            border: 1px solid lightgray;
-            border-radius: 5px;
+            width: 150px;
+            margin-right: 10px;
+            vertical-align: middle;
         }
         .full {
             width: 100%;
             padding: 10px;
         }
+        .field-wrap {
+            display: flex;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ff6b35;
+            border-radius: 5px;
+            align-items: center;
+            background: #ffe19c;
+        }
+        .field-wrap select {
+            flex-grow: 1;
+            height: 33px;
+        }
+        .field-wrap input {
+            flex-grow: 1;
+            height: 35px;
+        }
+        input[type=submit] {
+            padding: 10px;
+            border: 1px solid #ff6b35;
+            border-radius: 5px;
+            align-items: center;
+            background: #ffe19c;
+        }
         </style>
     </head>
     <body>
         <h1 align="center">UsedCars</h1>
-        <form name="tasks" action="/submit">
-            <label>License Plate Number: <input type="text" name="plate"></label>
+        <form id="tasks" action="/submit">
+            <div class="field-wrap"><label>License Plate Number</label><input type="text" name="plate"></div>
             {:TASKS:}
             <input type="submit" value="Submit" class="full">
         </form>

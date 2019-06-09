@@ -3,17 +3,42 @@
         <title>UsedCars</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-        label {
-            display: block;
-            padding: 10px;
-            margin-bottom: 5px;
-            border: 1px solid lightgray;
-            border-radius: 5px;
-        }
-        .full {
-            width: 100%;
-            padding: 10px;
-        }
+            body {
+                background: #efefd0;
+            }
+            label {
+                width: 150px;
+                margin-right: 10px;
+                vertical-align: middle;
+            }
+            .full {
+                width: 100%;
+                padding: 10px;
+            }
+            .field-wrap {
+                display: flex;
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ff6b35;
+                border-radius: 5px;
+                align-items: center;
+                background: #ffe19c;
+            }
+            .field-wrap select {
+                flex-grow: 1;
+                height: 33px;
+            }
+            .field-wrap input {
+                flex-grow: 1;
+                height: 35px;
+            }
+            input[type=submit] {
+                padding: 10px;
+                border: 1px solid #ff6b35;
+                border-radius: 5px;
+                align-items: center;
+                background: #ffe19c;
+            }
         </style>
     </head>
     <body>
@@ -22,7 +47,7 @@
             <input type="submit" value="Create a New Task List" class="full">
         </form>
         <form name="open" action="/tasks">
-            <label>Existing License Plate Number: <input type="text" name="plate"></label>
+            <div class="field-wrap"><label>Existing License Plate Number</label><input type="text" name="plate"></div>
             <input type="submit" value="View/Edit" class="full">
         </form>
     </body>
