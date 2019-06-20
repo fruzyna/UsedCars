@@ -6,8 +6,10 @@ const app = express()
 // file locations
 const indexFile  = 'pages/index.html'
 const submitFile = 'pages/tasks.html'
-const tasksFile  = 'tasks.txt'
+const tasksFile  = 'tasks.csv'
 const subFile    = 'submissions.json'
+
+const PORT = 8000
 
 // initialize home page
 var indexHTML = fs.readFileSync(indexFile, 'utf8')
@@ -81,6 +83,6 @@ app.get('/submit', (req, res) => {
 })
 
 // start listening
-app.listen(8000, () => {
-    console.log('UsedCars listening on port 8000.')
+app.listen(PORT, () => {
+    console.log('UsedCars listening on port ' + PORT + '...')
 })
